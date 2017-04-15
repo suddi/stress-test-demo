@@ -1,0 +1,1 @@
+%{"bcrypt": {:hex, :bcrypt, "0.5.0-p3a", "a9d4d17749f5ff565f277960a068388edb563b8fba3be901b9b4e0de19848735", [:rebar3], []}}

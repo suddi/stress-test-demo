@@ -21,7 +21,7 @@ function handler(req, res) {
 
 function bootstrap() {
     const server = http.createServer(handler);
-    const port = 3000;
+    const port = 3002;
     server.listen(port, function (err) {
         if (err) {
             console.log('server failed to start');

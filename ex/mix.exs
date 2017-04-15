@@ -12,10 +12,10 @@ defmodule Ex.Mixfile do
 
   def application do
     [extra_applications: [:logger],
-     mod: {Ex.Application, []}]
+     mod: {Ex, []}]
   end
 
   defp deps do
-    []
+    [{:bcrypt, "~> 0.5.0-p3a"}]
   end
 end

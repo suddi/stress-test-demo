@@ -1,45 +1,16 @@
 defmodule Ex do
-  @moduledoc """
-  Documentation for Ex.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  @doc false
+  def start(_type, _args) do
+    import Supervisor.Spec
 
-  ## Examples
-
-      iex> Ex.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
-
-  @doc """
-  Shoots a new door with the given `color`.
-  """
-  def shoot(color) do
-    Supervisor.start_child(Portal.Supervisor, [color])
-  end
-end
-
-defmodule Ex do
-  use Supervisor
-
-  def start_link do
-    Supervisor.start_link(__MODULE__, [], name: :chat_supervisor)
-  end
-
-  def start_room(name) do
-    Supervisor.start_child(:chat_supervisor, [name])
-  end
-
-  def init(_) do
     children = [
-      worker(Chat.Server, [])
+      supervisor(Task.Supervisor, [[name: Ex.TaskSupervisor]]),
+      worker(Task, [Ex.Server, :accept, [3001]])
     ]
 
-    supervise(children, strategy: :simple_one_for_one)
+    opts = [strategy: :one_for_one, name: Ex.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 end
