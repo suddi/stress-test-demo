@@ -9,7 +9,7 @@ function handler(req, res) {
     const input = req.url.replace(/^\//, '');
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(input, salt);
-    const responseBody = `{"status": "OK", "hash": "${hash}"}`;
+    const responseBody = `{"status":"OK","hash":"${hash}"}`;
     const headers = {
         'Content-Length': Buffer.byteLength(responseBody),
         'Content-Type': 'application/json'

@@ -31,7 +31,7 @@ defmodule Ex.Server do
   defp send_response(socket, {:ok, text}) do
     response = get_response(200, text)
     :gen_tcp.send(socket, response)
-    # :gen_tcp.send(socket, text)
+    :gen_tcp.close(socket)
   end
 
   defp get_response(200, body) do
