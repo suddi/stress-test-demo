@@ -9,3 +9,5 @@ RUN rm -rf node_modules
 RUN npm cache clean
 RUN npm install
 RUN npm update
+
+CMD ["node", "index.js"]

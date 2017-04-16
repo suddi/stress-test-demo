@@ -10,5 +10,4 @@
 # DIRECTORIES
 
 # FILES
-!index.js
-!package.json
+!app.go

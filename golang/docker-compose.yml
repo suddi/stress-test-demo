@@ -1,13 +1,13 @@
 version: '2.1'
 
 services:
-    javascript.stresstestdemo.com:
+    golang.stresstestdemo.com:
         build:
             context: .
-        container_name: javascript.stresstestdemo.com
-        image: stress-test-demo/javascript
+        container_name: golang.stresstestdemo.com
+        image: stress-test-demo/golang
         ports:
-            - "127.0.0.1:3003:3003"
+            - "127.0.0.1:3002:3002"
         cpu_shares: 10
         cpu_quota: 50000
         cpuset: 0,1
