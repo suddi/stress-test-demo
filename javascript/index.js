@@ -11,6 +11,8 @@ function handler(req, res) {
     const hash = bcrypt.hashSync(input, salt);
     const responseBody = `{"status":"OK","hash":"${hash}"}`;
     const headers = {
+        'Cache-Control': 'no-cache',
+        Connection: 'close',
         'Content-Length': Buffer.byteLength(responseBody),
         'Content-Type': 'application/json'
     };
@@ -21,7 +23,7 @@ function handler(req, res) {
 
 function bootstrap() {
     const server = http.createServer(handler);
-    const port = 3002;
+    const port = 3003;
     server.listen(port, function (err) {
         if (err) {
             console.log('server failed to start');

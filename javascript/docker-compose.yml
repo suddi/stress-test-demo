@@ -1,0 +1,19 @@
+version: '2.1'
+
+services:
+    js.stresstestdemo.com:
+        build:
+            context: .
+        container_name: js.stresstestdemo.com
+        image: stress-test-demo/javascript
+        command: node index.js
+        ports:
+            - "127.0.0.1:3002:3002"
+        volumes:
+            - ".:/code"
+            - "/code/node_modules"
+        cpu_shares: 10
+        cpu_quota: 50000
+        cpuset: 0,1
+        mem_limit: 10m
+        memswap_limit: 0m
