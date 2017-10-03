@@ -19,6 +19,5 @@ indent_size = 4
 
 [package.json]
 # The indent_size for `package.json` must be 2
-# http://www.yaml.org/spec/1.2/spec.html#id2777534
 # https://github.com/npm/npm/issues/4718
 indent_size = 2
